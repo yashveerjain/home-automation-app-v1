@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../models/rooms.dart';
+import './components/device_form.dart';
 import 'components/room_item.dart';
 
 class RoomScreen extends StatelessWidget{
@@ -12,21 +13,29 @@ class RoomScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     String id = ModalRoute.of(context)!.settings.arguments as String;
-    Room room = Provider.of<RoomsProvider>(context).getRoom(id);
-    List<String> electricalAppliancesNames = room.electricalAppliance.keys.toList();
-    List<bool> electricalApplianceswitch = room.electricalAppliance.values.toList();
+    final roomProvider = Provider.of<RoomsProvider>(context);
+    Room room = roomProvider.getRoom(id);
+
     return Scaffold(
+
       appBar: AppBar(
         title: Text(room.roomName,style: Theme.of(context).textTheme.headline5,),
+        actions: [
+          IconButton(onPressed: (){
+            showDialog(context: context, builder: (ctx){
+              return DeviceForm(roomId: room.roomId,);
+            });
+          }, icon: Icon(Icons.add))
+        ],
       ),
       body: GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
           itemBuilder: (ctx,index){
-            String light = electricalAppliancesNames[index];
-            bool lightSwitch = electricalApplianceswitch[index];
-            return RoomItem(light: light, room: room, lightSwitch: lightSwitch);
+            return ChangeNotifierProvider.value(
+                value: room.devices[index],
+                child: RoomItem(roomId: room.roomId));
           },
-      itemCount: room.electricalAppliance.length,),
+      itemCount: room.devices.length,),
     );
 
   }

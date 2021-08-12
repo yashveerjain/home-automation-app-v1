@@ -37,14 +37,16 @@ class _TimeWidgetState extends State<TimeWidget> {
             Text("${_timeOfDay.hour}:${_timeOfDay.minute}",
                 style: TextStyle(
                     fontSize: 70,
-                    fontWeight: FontWeight.w100
+                    fontWeight: FontWeight.w100,
+                    color: Colors.white70
                 )),
             RotatedBox(
                 quarterTurns: 3,
                 child: Text(_period,
                   style: TextStyle(
                       fontSize: 30,
-                      fontWeight: FontWeight.w100
+                      fontWeight: FontWeight.w100,
+                      color: Colors.white70
                   ),))
           ],
         ),
