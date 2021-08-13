@@ -35,6 +35,7 @@ currently in beta.
 * important to note if room deleted all the devices connected to it will be deleted and so its switch Status, same goes for individual device
 
 ## TODO 
+- add firebase url input form, so no need to default the url in code itself instead make it dynamic for different user different firebase url
 - (least priority)update UI it can have different icon for different electrical appliances
 - (medium priority)added extra functionalities like weather reportings usign some apis.
 - (least priority)added retreiving the data from raspberrypi like temp
