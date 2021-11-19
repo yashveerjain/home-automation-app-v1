@@ -24,9 +24,9 @@ class Room{
 }
 
 class RoomsProvider with ChangeNotifier {
-  final roomUrl = "https://home-automation-v1-792ae-default-rtdb.firebaseio.com/rooms";
-  final deviceUrl = "https://home-automation-v1-792ae-default-rtdb.firebaseio.com/devices";
-  final switchStatusUrl = "https://home-automation-v1-792ae-default-rtdb.firebaseio.com/switchState.json";
+  final roomUrl = ""; ##eg : https://default-rtdb.firebaseio.com/rooms
+  final deviceUrl = ""; ##eg: "https://default-rtdb.firebaseio.com/devices";
+  final switchStatusUrl = ""; ##eg: "https://default-rtdb.firebaseio.com/switchState.json";
 
   List<Room> _rooms = [];
 
