@@ -25,10 +25,10 @@ class Room{
 }
 
 class RoomsProvider with ChangeNotifier {
+
   final roomUrl = DBUrl().dbUrl+"/rooms"; //"https://home-automation-v1-792ae-default-rtdb.firebaseio.com/rooms";
   final deviceUrl = DBUrl().dbUrl+"/devices";//"https://home-automation-v1-792ae-default-rtdb.firebaseio.com/devices";
   final switchStatusUrl = DBUrl().dbUrl+"/switchState.json"; //"https://home-automation-v1-792ae-default-rtdb.firebaseio.com/switchState.json";
-
 
 
   List<Room> _rooms = [];
