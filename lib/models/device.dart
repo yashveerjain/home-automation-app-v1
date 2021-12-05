@@ -2,7 +2,9 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'dbUrl.dart';
 import 'package:http/http.dart' as http;
+
 
 class Device with ChangeNotifier {
   int? GPIOPin;
@@ -21,7 +23,7 @@ class Device with ChangeNotifier {
     var oldSwitchState = switchState;
     switchState = !switchState;
     try{
-      final url = Uri.parse("https://home-automation-v1-792ae-default-rtdb.firebaseio.com/switchState.json");
+      final url = Uri.parse(DBUrl().dbUrl+"/switchState.json");
       final response = await http.patch(url,body: jsonEncode({
         id : switchState
       }));}
